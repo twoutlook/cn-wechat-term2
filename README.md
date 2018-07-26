@@ -13,15 +13,15 @@ GOT IT
 https://services.github.com/on-demand/github-cli/open-pull-request-github
 
 ```
-git branch 2-2-mark01
+git branch tut-2-12
 git status
-git checkout 2-2-mark01
+git checkout tut-2-12
 git status
 git add .
 git status
-git commit -m"add something to 2-2-mark01"
+git commit -m"..."
 git log
-git push -u origin 2-2-mark01
+git push -u origin tut-2-12
 ```
 
 假設 branch 仍然可以繼續前進。

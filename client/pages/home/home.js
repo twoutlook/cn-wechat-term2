@@ -45,20 +45,56 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log("... 07/26 10:36")
-    // Tutorial 2-09
+    console.log("...home.js -> onLoad ")
+    console.log("    before      this.getProductList()  ")
+    console.log(this.data)
 
+
+    this.getProductList()   
+    console.log("    after      this.getProductList()  ")
+    console.log(this.data)
+
+  },
+
+// Tutorial 2-09
+
+  getProductList(){
+    wx.showLoading({
+      title: '商品數據加載中...',
+    })
     qcloud.request({
       url: 'https://untbxjpi.qcloud.la/weapp/product',
+      // url: 'https://untbxjpi.qcloud.la/weappxxx/product',
+      // url: 'https://untbxjpi.qcloud.la/weapp/productxxx',
+
+      // url: 'https://xxxuntbxjpi.qcloud.la/weapp/product', //DEBUG, to test fail on purpose
       success: res => {
-        console.log("...success 07/26 10:36")
-        console.log(res.data.data)
-        this.setData({
-          productList: res.data.data
-        })
+        // console.log("...success 07/26 10:36")
+        // console.log(res.data)
+        wx.hideLoading()
+        if (res.data.code==0){
+          console.log(res.data.code)
+          this.setData({
+            productList: res.data.data
+          })
+        }else{
+          // console.log("XXX")
+          wx.showLoading({
+            title: '商品數據加載失敗！',
+          })
+        }
+       
       },
       fail: res => {
         console.log("... fail 07/26 10:36")
+        wx.hideLoading()
+        wx.showLoading({
+          title: '商品數據加載失敗！',
+        })
+
+      },
+      complete: ()=>{
+        wx.hideLoading()
 
       }
 

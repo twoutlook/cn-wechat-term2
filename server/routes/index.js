@@ -37,4 +37,8 @@ router.post('/message', controllers.message.post)
 // https://untbxjpi.qcloud.la/weapp/product/
 router.get('/product', controllers.product.list)
 
+// Tut 2-12
+router.get('/product/:id', controllers.product.detail)
+
+
 module.exports = router
