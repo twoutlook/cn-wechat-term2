@@ -23,3 +23,5 @@ git commit -m"add something to 2-2-mark01"
 git log
 git push -u origin 2-2-mark01
 ```
+
+假設 branch 仍然可以繼續前進。
