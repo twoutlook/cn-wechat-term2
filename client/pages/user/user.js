@@ -12,6 +12,7 @@ Page({
   },
 
   onTapAddress() {
+    console.log("...onTapAddress")
     wx.showToast({
       icon: 'none',
       title: '此功能暂未开放'
