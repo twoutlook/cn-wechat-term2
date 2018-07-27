@@ -34,6 +34,11 @@ var config = {
     // 获取产品详情
     productDetail: `${host}/weapp/product/`,
 
+    // by Mark
+    // 获取 Movies 详情
+    moviesDetail: `${host}/weapp/movies/`,
+
+
     // 拉取用户信息
     user: `${host}/weapp/user`,
 

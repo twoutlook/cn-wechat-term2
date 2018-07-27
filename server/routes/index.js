@@ -43,6 +43,13 @@ router.get('/movies', controllers.movies.list)
 
 // 获取商品详情
 router.get('/product/:id', controllers.product.detail)
+
+// 获取 Movies 详情
+router.get('/movies/:id', controllers.movies.detail)
+
+
+
+
 // 创建订单
 router.post('/order', validationMiddleware, controllers.order.add)
 // 显示已购买订单
