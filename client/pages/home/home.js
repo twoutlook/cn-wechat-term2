@@ -19,6 +19,7 @@ Page({
   },
 
   getProductList() {
+    console.log('... doing  getProductList()')
     wx.showLoading({
       title: '商品数据加载中',
     })

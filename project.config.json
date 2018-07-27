@@ -27,12 +27,30 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "商品详情页",
 					"pathName": "pages/detail/detail",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "m2",
+					"pathName": "pages/m2/m2",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "doing home",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "m1",
+					"pathName": "pages/m1/m1",
 					"query": ""
 				}
 			]
