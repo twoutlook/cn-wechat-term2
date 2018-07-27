@@ -1,9 +1,41 @@
-// pages/home/home.js
+/*
+
+
+1 首页 , Nav => 2, 8
+2 电影列表页
+3 电影详情页，
+4 影评列表页，
+5 影评详情页，
+6 影评编辑页，
+7 影评预览页，
+8 个人中心页。
+
+
+
+*/
+
+
+
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
 
 // pages/m1/m1.js
 Page({
+  onTapGotoM2() {
+
+    wx.navigateTo({
+      url: `/pages/m2/m2`
+    })
+
+  },
+  onTapGotoM8() {
+
+    wx.navigateTo({
+      url: `/pages/m8/m8`
+    })
+
+  },
+
 
   /**
    * 页面的初始数据

@@ -1,2 +1,22 @@
-<!--pages/m2/m2.wxml-->
-<text>pages/m2/m2.wxml</text>
+<view class='product-row' wx:for='{{moviesList}}' wx:key='id'  bindtap='onTapGotoM3' data-id='{{index}}'>
+
+
+
+  <view class='card'>
+   <view class='card-right'>
+
+      <image class="news-img" src="{{item.image ==''?defaultImg:item.image}}" mode='widthFix' binderror='whenNoImg' data-index="{{index}}"></image>
+    </view>
+    <view class='card-left'>
+      <view class="card-left-1">{{item.title}}</view>
+
+      <view class="card-left-2">
+        {{item.category}}
+      </view>
+
+    </view>
+   
+  </view>
+
+</view>
+

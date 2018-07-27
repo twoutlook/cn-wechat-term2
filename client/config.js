@@ -26,6 +26,11 @@ var config = {
     // 获取产品列表
     productList: `${host}/weapp/product`,
 
+    // by Mark, 2018-07-26 19:00
+    // 获取 Movies 列表
+    moviesList: `${host}/weapp/movies`,
+
+
     // 获取产品详情
     productDetail: `${host}/weapp/product/`,
 
