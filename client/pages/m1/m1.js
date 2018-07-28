@@ -33,11 +33,8 @@ Page({
   onTapGotoM8() {
     console.log("... going to page User")
     wx.navigateTo({
-      // url: `/pages/m8/m8`
-      url: `/pages/user/user`
+      url: `/pages/m8/m8`
     })
-    console.log("... why not working???")
-
   },
 
 

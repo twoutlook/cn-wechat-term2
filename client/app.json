@@ -36,8 +36,13 @@
         "text": "购物车",
         "iconPath": "images/trolley.png",
         "selectedIconPath": "images/trolley-sel.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人中心",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user-sel.png"
       }
-
     ]
   },
   "window": {

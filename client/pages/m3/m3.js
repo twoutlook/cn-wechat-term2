@@ -19,7 +19,7 @@ http://www.wxapp-union.com/article-2045-1.html
 */
 
 
-var app =getApp()
+var app = getApp()
 
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
@@ -34,7 +34,7 @@ Page({
   onTapGotoM6(textOrAudio) {
 
     wx.navigateTo({
-      url: `/pages/m6/m6?type=`+textOrAudio
+      url: `/pages/m6/m6?type=` + textOrAudio
     })
 
   },
@@ -42,19 +42,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    moviesDetail: null,
+    movie: null,
 
     // text:"这是一个页面"
     actionSheetHidden: true,
     actionSheetItems: [{
-        bindtap: 'Menu1',
+        // bindtap: 'Menu1',
+        bindtap: app.commentType.text,
+
         txt: '文字'
       },
       {
-        bindtap: 'Menu2',
+        // bindtap: 'Menu2',
+        bindtap: app.commentType.audio,
         txt: '音頻'
       },
-  
+
     ],
     menu: ''
 
@@ -71,8 +74,25 @@ Page({
       actionSheetHidden: !this.data.actionSheetHidden
     })
   },
-  bindMenu1: function() {
-    
+
+  onTapComment: function(data) {
+    console.log("...doing onTapComment")
+    console.log(data)
+    console.log(data.type)
+    console.log(data.id)
+
+
+    // this.setData({
+    //   menu: 1,
+    //   // actionSheetHidden: !this.data.actionSheetHidden
+    // })
+    this.onTapGotoM6(data)
+  },
+
+
+  bindMenu1: function(para) {
+    console.log("can we have para?")
+    console.log(para)
     // this.setData({
     //   menu: 1,
     //   // actionSheetHidden: !this.data.actionSheetHidden
@@ -86,7 +106,7 @@ Page({
     // })
     this.onTapGotoM6(app.commentType.audio)
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -97,7 +117,7 @@ Page({
   },
   getMovieDetail(id) {
     console.log('... doing  getMovieDetail()')
-    console.log(config.service.moviesDetail + id)
+    console.log(config.service.movie + id)
     wx.showLoading({
       title: '数据加载中...',
     })
@@ -106,12 +126,12 @@ Page({
       success: result => {
         wx.hideLoading()
         console.log('... doing  success')
-     
+
         console.log(result.data.data)
 
         if (!result.data.code) {
           this.setData({
-            moviesDetail: result.data.data
+            movie: result.data.data
           })
         } else {
           wx.showToast({

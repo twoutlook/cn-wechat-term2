@@ -1,6 +1,6 @@
 <view class='m3-card'>
   <view class="m3-image-box">
-    <image class="m3-image" src="{{moviesDetail.image ==''?defaultImg:moviesDetail.image}}" mode='widthFix' binderror='whenNoImg'>
+    <image class="m3-image" src="{{movie.image ==''?defaultImg:movie.image}}" mode='widthFix' binderror='whenNoImg'>
     </image>
   </view>
 
@@ -9,23 +9,25 @@
   
 
     <view class="m3-title">
-      {{moviesDetail.title}}
+      {{movie.title}}
     </view>
 
     <scroll-view scroll-y style="height:650rpx">
 
       <view class="m3-description">
-        {{moviesDetail.description}}
+        {{movie.description}}
       </view>
 
       <view class='buttom-section'>
-        <view class='buttom-2' bindtap='onTapGotoM4' data-id='{{moviesDetail.id}}'>查看影評</view>
-        <view class='buttom-2' bindtap='onTapGotoM8'>
+        <view class='buttom-2' bindtap='onTapGotoM4' data-id='{{movie.id}}'>查看影評</view>
+        <view class='buttom-2' >
 
           <button type="default" bindtap="actionSheetTap">添加影評</button>
           <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
             <block wx:for-items="{{actionSheetItems}}" wx:key="index">
-              <action-sheet-item bindtap="bind{{item.bindtap}}">{{item.txt}}</action-sheet-item>
+              <action-sheet-item bindtap="onTapComment" data-type="{{item.bindtap}}"
+              data-id="{{moive.id}}" data-title="{{moive.title}}" data-image="{{moive.image}}"
+              >{{item.txt}}</action-sheet-item>
             </block>
             <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
           </action-sheet>
