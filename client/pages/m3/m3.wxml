@@ -25,8 +25,8 @@
           <button type="default" bindtap="actionSheetTap">添加影評</button>
           <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
             <block wx:for-items="{{actionSheetItems}}" wx:key="index">
-              <action-sheet-item bindtap="onTapComment" data-type="{{item.bindtap}}"
-              data-id="{{moive.id}}" data-title="{{moive.title}}" data-image="{{moive.image}}"
+              <action-sheet-item bindtap="bind{{item.bindtap}}"
+              
               >{{item.txt}}</action-sheet-item>
             </block>
             <action-sheet-cancel class="cancel">取消</action-sheet-cancel>

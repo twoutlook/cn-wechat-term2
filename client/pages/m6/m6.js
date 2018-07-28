@@ -20,22 +20,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+  movie:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  console.log(options.type)
-    if (options.type == app.commentType.text) {
-      console.log("文字")
+    console.log( options)
+    this.setData({
+      movie:options
+    })
+ 
 
-    }
-    if (options.type == app.commentType.audio) {
-      console.log("音頻")
-
-    }
 
   },
 

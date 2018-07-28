@@ -1,1 +1,102 @@
-/* pages/m4/m4.wxss */
+/* pages/m3/m3.wxss */
+
+page {
+  background: hsl(0, 0%, 85%);
+}
+
+.m3-card {
+  /* display: flex; */
+    /* border-radius: 5%; */
+    /* position: absolute; */
+    /* top:100rpx; */
+      background: #FFFFFF;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  /* border-radius: 13rpx; */
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+    margin-top: 32rpx;
+  margin-bottom: 32rpx;
+}
+
+
+
+.card-left {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  display: flex;
+  flex-direction: column;
+  width: 500rpx;
+}
+
+.detail-title {
+  margin-top: 36rpx;
+  font-size: 40rpx;
+  line-height: 56rpx;
+}
+.m3-title {
+  /* 文字居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font: 30rps; */
+
+
+  margin-top: 36rpx;
+  font-size: 40rpx;
+  line-height: 56rpx;
+}
+.m3-description {
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  
+  margin-top: 32rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.8;
+}
+
+
+.m3-image {
+  /* border-radius: 5%; */
+    /* 文字居中 */
+       /* position: absolute; */
+       /* top: -50rpx; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200rpx;
+}
+
+.xxm3-text {
+  /* border-radius: 5%; */
+    /* 文字居中 */
+       /* position: absolute; */
+       /* top: 200rpx; */
+  display: flex;
+  /* justify-content: center;
+  align-items: center;
+  width: 200rpx; */
+}
+
+.m3-image-box {
+  /* border-radius: 5%; */
+    /* 文字居中 */
+    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 200rpx; */
+}
+.m3-text-box {
+  /* border-radius: 5%; */
+    /* 文字居中 */
+    position: relative;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* width: 200rpx; */
+}
+
+.detail-scroll {
+ height: 500rpx
+}

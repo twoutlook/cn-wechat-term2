@@ -1,2 +1,25 @@
-<!--pages/m6/m6.wxml-->
-<text>pages/m6/m6.wxml</text>
+<view class='m3-card'>
+  <view class="m3-image-box">
+    <image class="m3-image" src="{{movie.image ==''?defaultImg:movie.image}}" mode='widthFix' binderror='whenNoImg'>
+    </image>
+  </view>
+
+  <view class="m3-text-box">
+    <view class="m3-text">
+
+
+      <view class="m3-title">
+        {{movie.title}}
+      </view>
+      <view class="m3-title" wx:if="{{movie.type == 1}}">
+        ... DOING text comment
+      </view>
+      <view class="m3-title" wx:if="{{movie.type == 2}}">
+        ... DOING audio comment
+      </view>
+      
+
+      
+    </view>
+  </view>
+</view>

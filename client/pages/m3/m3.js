@@ -34,7 +34,7 @@ Page({
   onTapGotoM6(textOrAudio) {
 
     wx.navigateTo({
-      url: `/pages/m6/m6?type=` + textOrAudio
+      url: `/pages/m6/m6?type=` + textOrAudio + "&id=" + this.data.movie.id + "&title=" + this.data.movie.title + "&image=" + this.data.movie.image
     })
 
   },
@@ -47,14 +47,14 @@ Page({
     // text:"这是一个页面"
     actionSheetHidden: true,
     actionSheetItems: [{
-        // bindtap: 'Menu1',
-        bindtap: app.commentType.text,
+        bindtap: 'Menu1',
+        // bindtap: app.commentType.text,
 
         txt: '文字'
       },
       {
-        // bindtap: 'Menu2',
-        bindtap: app.commentType.audio,
+        bindtap: 'Menu2',
+        // bindtap: app.commentType.audio,
         txt: '音頻'
       },
 
@@ -75,24 +75,11 @@ Page({
     })
   },
 
-  onTapComment: function(data) {
-    console.log("...doing onTapComment")
-    console.log(data)
-    console.log(data.type)
-    console.log(data.id)
 
 
-    // this.setData({
-    //   menu: 1,
-    //   // actionSheetHidden: !this.data.actionSheetHidden
-    // })
-    this.onTapGotoM6(data)
-  },
-
-
-  bindMenu1: function(para) {
+  bindMenu1: function(event) {
     console.log("can we have para?")
-    console.log(para)
+    console.log(event.target)
     // this.setData({
     //   menu: 1,
     //   // actionSheetHidden: !this.data.actionSheetHidden
