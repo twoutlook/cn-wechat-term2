@@ -52,5 +52,5 @@ page {
   line-height: 100rpx;
   flex: 1;
   /* border: 1rpx solid  */
-  color: hsl(0, 0%, 85%);
+  color: hsl(0, 0%, 50%);
 }

@@ -1,22 +1,24 @@
-<view class='product-row' wx:for='{{movieList}}' wx:key='id'  bindtap='onTapGotoM3' data-id='{{item.id}}'>
+<view class='product-row' wx:for='{{movieList}}' wx:key='id' bindtap='onTapGotoM3' data-id='{{item.id}}'>
 
 
 
-  <view class='card'>
-   <view class='card-right'>
+  <view class='m2-card'>
+    <view class='m2-left'>
 
-      <image class="news-img" src="{{item.image ==''?defaultImg:item.image}}" mode='widthFix' binderror='whenNoImg' ></image>
+      <image class="m2-img" src="{{item.image ==''?defaultImg:item.image}}" mode='widthFix' binderror='whenNoImg'>
+      </image>
     </view>
-    <view class='card-left'>
-      <view class="card-left-1">{{item.title}}</view>
+    <view class='m2-right'>
+      <view class="m2-title">
+        {{item.title}}
+      </view>
 
-      <view class="card-left-2">
+      <view class="m2-category">
         {{item.category}}
       </view>
 
     </view>
-   
+
   </view>
 
 </view>
-
