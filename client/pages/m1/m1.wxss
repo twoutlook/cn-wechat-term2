@@ -1,7 +1,17 @@
+/*
+整個頁面的背景色
+ https://www.jianshu.com/p/eecc3bf3a5e5
+
+
+*/
+
+page {
+  background: hsl(0, 0%, 85%);
+}
+
 .m1-card {
   background: hsl(0, 0%, 85%);
-  /* width: 500rpx; */
-  /* margin-bottom: 60rpx; */
+  /* width: 500rpx; *//* margin-bottom: 60rpx; */
 }
 
 .m1-title {
@@ -16,11 +26,10 @@
 .m1-ext {
   /* height: 300rps; */
   background: hsl(0, 0%, 85%);
-
   height: 42rpx; /*固定高度, 没字时也有高度*/
-   color: red;
-    font-size:200rpx;
-  line-height:280rpx;
+  color: red;
+  font-size: 200rpx;
+  line-height: 280rpx;
 }
 
 .m1-image {
@@ -29,4 +38,19 @@
   margin-bottom: 32rpx;
   margin-left: 75rpx; /*  750-600=150  */
   width: 600rpx;
+}
+
+.buttom-section {
+  background: white;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  font: 32rps;
+  line-height: 100rpx;
+  flex: 1;
+  /* border: 1rpx solid  */
+  color: hsl(0, 0%, 85%);
 }

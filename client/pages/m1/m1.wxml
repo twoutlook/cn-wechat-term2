@@ -7,12 +7,10 @@
 
   </view>
 
-  <view class="m1-ext">
-  
-  </view>
+
 
 </view>
 <view class='buttom-section'>
-  <view class='buttom-1' bindtap='onTapGotoM2'>熱門</view>
-  <view class='buttom-2' bindtap='onTapGotoM8'>我的</view>
+  <view class='btn' bindtap='onTapGotoM2'>熱門</view>
+  <view class='btn' bindtap='onTapGotoM8'>我的</view>
 </view>
