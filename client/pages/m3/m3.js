@@ -92,22 +92,21 @@ Page({
    */
   onLoad: function(options) {
     console.log(options.id)
-    this.getMoviesDetail(options.id)
+    this.getMovieDetail(options.id)
 
   },
-  getMoviesDetail(id) {
-    console.log('... doing  getMoviesDetail()')
+  getMovieDetail(id) {
+    console.log('... doing  getMovieDetail()')
     console.log(config.service.moviesDetail + id)
     wx.showLoading({
       title: '数据加载中...',
     })
     qcloud.request({
-      url: config.service.moviesDetail + id,
+      url: config.service.movieDetail + id,
       success: result => {
         wx.hideLoading()
         console.log('... doing  success')
-        console.log('... url is ' + config.service.moviesList)
-
+     
         console.log(result.data.data)
 
         if (!result.data.code) {

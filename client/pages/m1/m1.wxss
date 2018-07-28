@@ -1,0 +1,32 @@
+.m1-card {
+  background: hsl(0, 0%, 85%);
+  /* width: 500rpx; */
+  /* margin-bottom: 60rpx; */
+}
+
+.m1-title {
+  /* 文字居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 30rps;
+  /* color: red; */
+}
+
+.m1-ext {
+  /* height: 300rps; */
+  background: hsl(0, 0%, 85%);
+
+  height: 42rpx; /*固定高度, 没字时也有高度*/
+   color: red;
+    font-size:200rpx;
+  line-height:280rpx;
+}
+
+.m1-image {
+  /* border-radius: 5%; */
+  margin-top: 32rpx;
+  margin-bottom: 32rpx;
+  margin-left: 75rpx; /*  750-600=150  */
+  width: 600rpx;
+}
