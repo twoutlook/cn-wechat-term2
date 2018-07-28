@@ -2,18 +2,7 @@
  * 小程序配置文件
  */
 
-// const COMMENT_TEXT = 1
-// const COMMENT_AUDIO = 2
 
-var prj={
-  comment:{
-    text:1,
-    audio:2
-  }
-  // }
-  // COMMENT_TEXT:1,
-  // COMMENT_AUDIO : 2
-}
 
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
@@ -42,7 +31,7 @@ var config = {
 
     // by Mark, 2018-07-26 19:00
     // 获取 Movies 列表
-    moviesList: `${host}/weapp/movies`,
+    movieList: `${host}/weapp/movie`,
 
 
     // 获取产品详情
@@ -50,7 +39,7 @@ var config = {
 
     // by Mark
     // 获取 Movies 详情
-    moviesDetail: `${host}/weapp/movies/`,
+    movieDetail: `${host}/weapp/movie/`,
 
 
     // 拉取用户信息
