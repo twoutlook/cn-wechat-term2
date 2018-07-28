@@ -1,2 +1,31 @@
-<!--pages/m3/m3.wxml-->
-<text>pages/m3/m3.wxml</text>
+<view class='detail-card'>
+
+  <image class="detail-image" src="{{moviesDetail.image ==''?defaultImg:moviesDetail.image}}" mode='widthFix' binderror='whenNoImg'></image>
+
+  <view class="detail-title">
+    {{moviesDetail.title}}
+  </view>
+
+
+  <view class="detail-description">
+    {{moviesDetail.description}}
+  </view>
+
+  <view class='buttom-section'>
+    <view class='buttom-1' bindtap='onTapGotoM4' data-id='{{moviesDetail.id}}'>查看影評</view>
+    <view class='buttom-2' bindtap='onTapGotoM8'>
+
+      <button type="default" bindtap="actionSheetTap">添加影評</button>
+      <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+        <block wx:for-items="{{actionSheetItems}}">
+          <action-sheet-item bindtap="bind{{item.bindtap}}">{{item.txt}}</action-sheet-item>
+        </block>
+        <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+      </action-sheet>
+      <view>
+        提示：您选择了菜单{{menu}}
+      </view>
+    </view>
+  </view>
+
+</view>

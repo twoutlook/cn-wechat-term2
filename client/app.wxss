@@ -3,6 +3,26 @@ page {
   background: #f9f9f9;
 }
 
+.buttom-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.buttom-1,
+.buttom-2 {
+  flex: 1;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #34373D;
+  font-weight: bold;
+}
+
 .bg {
   position: absolute;
   left: 0;

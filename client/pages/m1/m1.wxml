@@ -1,5 +1,5 @@
-<view class='opr-cnt'>
-  <view class='opr-trolley' bindtap='onTapGotoM2'>熱門</view>
-  <view class='opr-buy' bindtap='onTapGotoM8'>我的</view>
+<view class='buttom-section'>
+  <view class='buttom-1' bindtap='onTapGotoM2'>熱門</view>
+  <view class='buttom-2' bindtap='onTapGotoM8'>我的</view>
 </view>
 

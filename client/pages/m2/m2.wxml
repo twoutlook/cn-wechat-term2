@@ -1,11 +1,11 @@
-<view class='product-row' wx:for='{{moviesList}}' wx:key='id'  bindtap='onTapGotoM3' data-id='{{index}}'>
+<view class='product-row' wx:for='{{moviesList}}' wx:key='id'  bindtap='onTapGotoM3' data-id='{{item.id}}'>
 
 
 
   <view class='card'>
    <view class='card-right'>
 
-      <image class="news-img" src="{{item.image ==''?defaultImg:item.image}}" mode='widthFix' binderror='whenNoImg' data-index="{{index}}"></image>
+      <image class="news-img" src="{{item.image ==''?defaultImg:item.image}}" mode='widthFix' binderror='whenNoImg' ></image>
     </view>
     <view class='card-left'>
       <view class="card-left-1">{{item.title}}</view>
