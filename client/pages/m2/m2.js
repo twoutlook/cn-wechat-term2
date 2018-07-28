@@ -1,4 +1,15 @@
-// pages/home/home.js
+/*
+
+m2
+电影列表页
+
+点击每部电影能够跳转到对应的电影详情页。
+
+
+
+*/
+
+
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
 

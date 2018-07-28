@@ -39,3 +39,8 @@
   border-radius: 5%;
   width: 260rpx;
 }
+
+
+.detail-scroll {
+ height: 500rpx
+}
