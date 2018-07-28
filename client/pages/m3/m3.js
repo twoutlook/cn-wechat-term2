@@ -19,7 +19,7 @@ http://www.wxapp-union.com/article-2045-1.html
 */
 
 
-
+var app =getApp()
 
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
@@ -73,18 +73,18 @@ Page({
   },
   bindMenu1: function() {
     
-    this.setData({
-      menu: 1,
-      // actionSheetHidden: !this.data.actionSheetHidden
-    })
-    this.onTapGotoM6(1)
+    // this.setData({
+    //   menu: 1,
+    //   // actionSheetHidden: !this.data.actionSheetHidden
+    // })
+    this.onTapGotoM6(app.commentType.text)
   },
   bindMenu2: function() {
-    this.setData({
-      menu: 2,
-      // actionSheetHidden: !this.data.actionSheetHidden
-    })
-    this.onTapGotoM6(2)
+    // this.setData({
+    //   menu: 2,
+    //   // actionSheetHidden: !this.data.actionSheetHidden
+    // })
+    this.onTapGotoM6(app.commentType.audio)
   },
   
   /**

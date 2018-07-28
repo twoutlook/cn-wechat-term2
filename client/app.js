@@ -27,8 +27,7 @@ M6 影评编辑页
 根据用户想要添加的影评类型展示相应的编辑界面。
 类型为文字影评时，用户只能编写文字影评；类型为语音影评时，用户只能录入语音影评。
 */
-const COMMENT_TEXT = 1
-const COMMENT_AUDIO = 2
+
 
 // function onTapGotoPage(x,str) {
 //   console("handle all project wx navigate to here !!!")
@@ -43,6 +42,12 @@ const COMMENT_AUDIO = 2
 
 
 App({
+  
+  commentType:{
+    text:1,
+    audio:2
+  },
+  
   onLaunch: function () {
     qcloud.setLoginUrl(config.service.loginUrl)
   },
@@ -50,6 +55,9 @@ App({
   data: {
     locationAuthType: UNPROMPTED
   },
+
+  
+
 
   login({ success, error }) {
     wx.getSetting({

@@ -2,6 +2,20 @@
  * 小程序配置文件
  */
 
+// const COMMENT_TEXT = 1
+// const COMMENT_AUDIO = 2
+
+var prj={
+  comment:{
+    text:1,
+    audio:2
+  }
+  // }
+  // COMMENT_TEXT:1,
+  // COMMENT_AUDIO : 2
+}
+
+
 // 此处主机域名修改成腾讯云解决方案分配的域名
 var host = 'https://untbxjpi.qcloud.la';
 

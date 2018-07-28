@@ -12,7 +12,7 @@ M6 影评编辑页
 
 
 */
-
+var app=getApp()
 
 Page({
 
@@ -28,6 +28,14 @@ Page({
    */
   onLoad: function (options) {
   console.log(options.type)
+    if (options.type == app.commentType.text) {
+      console.log("文字")
+
+    }
+    if (options.type == app.commentType.audio) {
+      console.log("音頻")
+
+    }
 
   },
 
