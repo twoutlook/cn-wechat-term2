@@ -37,7 +37,7 @@ router.get('/product', controllers.product.list)
 
 // by Mark, 2018-07-27 18:50
 // 获取Movies 列表
-router.get('/movies', controllers.movies.list)
+router.get('/movie', controllers.movie.list)
 
 
 
@@ -45,7 +45,7 @@ router.get('/movies', controllers.movies.list)
 router.get('/product/:id', controllers.product.detail)
 
 // 获取 Movies 详情
-router.get('/movies/:id', controllers.movies.detail)
+router.get('/movie/:id', controllers.movie.detail)
 
 
 
