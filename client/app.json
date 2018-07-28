@@ -1,7 +1,6 @@
 {
   "pages": [
-    "pages/home/home",
-       "pages/m1/m1",
+    "pages/m1/m1",
     "pages/m2/m2",
     "pages/m3/m3",
     "pages/m4/m4",
@@ -9,12 +8,11 @@
     "pages/m6/m6",
     "pages/m7/m7",
     "pages/m8/m8",
-    
-
-
+    "pages/home/home",
     "pages/order/order",
     "pages/trolley/trolley",
     "pages/user/user",
+
     "pages/detail/detail",
     "pages/add-comment/add-comment",
     "pages/comment/comment"
@@ -38,13 +36,8 @@
         "text": "购物车",
         "iconPath": "images/trolley.png",
         "selectedIconPath": "images/trolley-sel.png"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "text": "个人中心",
-        "iconPath": "images/user.png",
-        "selectedIconPath": "images/user-sel.png"
       }
+
     ]
   },
   "window": {

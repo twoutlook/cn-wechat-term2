@@ -27,7 +27,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -51,6 +51,12 @@
 					"id": 3,
 					"name": "m1",
 					"pathName": "pages/m1/m1",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "User",
+					"pathName": "pages/user/user",
 					"query": ""
 				}
 			]

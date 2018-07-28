@@ -3,21 +3,12 @@
 page {
   background: hsl(0, 0%, 85%);
 }
-.card {
-  /* display: flex; */
-    /* border-radius: 5%; */
-      background: #FFFFFF;
-  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
-  border-radius: 13rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-    margin-top: 100rpx;
-  margin-bottom: 20rpx;
-}
 
 .m3-card {
   /* display: flex; */
     /* border-radius: 5%; */
+    /* position: absolute; */
+    /* top:100rpx; */
       background: #FFFFFF;
   box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
   /* border-radius: 13rpx; */
@@ -68,20 +59,43 @@ page {
 .m3-image {
   /* border-radius: 5%; */
     /* 文字居中 */
+       /* position: absolute; */
+       /* top: -50rpx; */
   display: flex;
   justify-content: center;
   align-items: center;
   width: 200rpx;
 }
+
+.xxm3-text {
+  /* border-radius: 5%; */
+    /* 文字居中 */
+       /* position: absolute; */
+       /* top: 200rpx; */
+  display: flex;
+  /* justify-content: center;
+  align-items: center;
+  width: 200rpx; */
+}
+
 .m3-image-box {
   /* border-radius: 5%; */
     /* 文字居中 */
+    position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   /* width: 200rpx; */
 }
-
+.m3-text-box {
+  /* border-radius: 5%; */
+    /* 文字居中 */
+    position: relative;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* width: 200rpx; */
+}
 
 .detail-scroll {
  height: 500rpx

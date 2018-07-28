@@ -1,32 +1,39 @@
 <view class='m3-card'>
   <view class="m3-image-box">
-    <image class="m3-image" src="{{moviesDetail.image ==''?defaultImg:moviesDetail.image}}" mode='widthFix' binderror='whenNoImg'></image>
-  </view>
-  <view class="m3-title">
-    {{moviesDetail.title}}
+    <image class="m3-image" src="{{moviesDetail.image ==''?defaultImg:moviesDetail.image}}" mode='widthFix' binderror='whenNoImg'>
+    </image>
   </view>
 
-  <scroll-view scroll-y style="height:650rpx">
+  <view class="m3-text-box">
+  <view class="m3-text">
+  
 
-    <view class="m3-description">
-      {{moviesDetail.description}}
+    <view class="m3-title">
+      {{moviesDetail.title}}
     </view>
 
-    <view class='buttom-section'>
-      <view class='buttom-2' bindtap='onTapGotoM4' data-id='{{moviesDetail.id}}'>查看影評</view>
-      <view class='buttom-2' bindtap='onTapGotoM8'>
+    <scroll-view scroll-y style="height:650rpx">
 
-        <button type="default" bindtap="actionSheetTap">添加影評</button>
-        <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
-          <block wx:for-items="{{actionSheetItems}}" wx:key="index">
-            <action-sheet-item bindtap="bind{{item.bindtap}}">{{item.txt}}</action-sheet-item>
-          </block>
-          <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
-        </action-sheet>
-        <view>
-          提示：您选择了菜单{{menu}}
+      <view class="m3-description">
+        {{moviesDetail.description}}
+      </view>
+
+      <view class='buttom-section'>
+        <view class='buttom-2' bindtap='onTapGotoM4' data-id='{{moviesDetail.id}}'>查看影評</view>
+        <view class='buttom-2' bindtap='onTapGotoM8'>
+
+          <button type="default" bindtap="actionSheetTap">添加影評</button>
+          <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+            <block wx:for-items="{{actionSheetItems}}" wx:key="index">
+              <action-sheet-item bindtap="bind{{item.bindtap}}">{{item.txt}}</action-sheet-item>
+            </block>
+            <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+          </action-sheet>
+          <view>
+            提示：您选择了菜单{{menu}}
+          </view>
         </view>
       </view>
-    </view>
-  </scroll-view>
-</view>
+    </scroll-view>
+  </view>
+</view></view>
