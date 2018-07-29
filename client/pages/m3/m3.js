@@ -44,7 +44,7 @@ Page({
 
     wx.navigateTo({
       // url: `/pages/m6/m6?type=` + textOrAudio + "&id=" + this.data.movie.id + "&title=" + this.data.movie.title + "&image=" + this.data.movie.image
-      url: `/pages/m6/m6?` + `type =` + textOrAudio + "&" + this.getMovieUrlParam()
+      url: `/pages/m6/m6?` + `commenttype=` + textOrAudio + "&" + this.getMovieUrlParam()
     })
 
   },
@@ -114,7 +114,7 @@ Page({
   },
   getMovieDetail(id) {
     console.log('... doing  getMovieDetail()')
-    console.log(config.service.movie + id)
+    console.log(config.service.movieDetail + id)
     wx.showLoading({
       title: '数据加载中...',
     })

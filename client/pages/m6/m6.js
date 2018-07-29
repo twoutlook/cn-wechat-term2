@@ -25,6 +25,7 @@ Page({
 
 
     movie: {},
+    commentType:0,
     commentValue: '',
     // commentImages: [],
   },
@@ -33,9 +34,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // console.log( options)
+    console.log(options)
+    console.log("commenttype is " + options.commenttype)
+    console.log("movie id is " + options.id)
+
+
     this.setData({
-      movie: options
+      movie: options,
+      commentType:options.commenttype
     })
 
 

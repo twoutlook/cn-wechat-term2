@@ -9,9 +9,9 @@
 
 
       <view class="m3-title">
-        {{movie.title}}
+        {{movie.title}}xxx BUG xxx{{commentType}}
       </view>
-      <view class="xxxm3-title" wx:if="{{movie.type == 1}}">
+      <view class="xxxm3-title" wx:if="{{commentType == 1}}">
         <!-- ... DOING text comment -->
         <view class='comment-cnt'>
           <textarea class='comment-ipt' placeholder-class='comment-placeholder' placeholder='请填写你的评价' auto-focus maxlength='255' bindinput='onInput'></textarea>
@@ -20,7 +20,7 @@
         <view class="comment-btn {{!commentValue ? 'disabled' : ''}}" bindtap="addComment">提交评价</view>
 
       </view>
-      <view class="m3-title" wx:if="{{movie.type == 2}}">
+      <view class="m3-title" wx:if="{{commentType == 2}}">
         ... DOING audio comment
       </view>
 

@@ -49,11 +49,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
     this.getMovieDetail(1)
   },
   getMovieDetail(id) {
     console.log('...m1 doing  getMovieDetail(), id=' + id)
-    // console.log(config.service.moviesDetail + id)
+    console.log(config.service.moviesDetail + id)
     wx.showLoading({
       title: '数据加载中...',
     })
