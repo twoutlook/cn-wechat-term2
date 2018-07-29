@@ -1,0 +1,23 @@
+<view class='m3-card'>
+  <view class="m3-image-box">
+    <image class="m3-image" src="{{movie.image ==''?defaultImg:movie.image}}" mode='widthFix' binderror='whenNoImg'>
+    </image>
+  </view>
+
+  <view class="m3-text-box">
+    <view class="m3-text">
+
+
+      <view class="m3-title">
+        {{movie.title}}
+      </view>
+DOING LIST HERE
+
+
+    </view>
+  </view>
+
+
+
+
+</view>

@@ -25,16 +25,26 @@ const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
 Page({
   onTapGotoM4() {
+    var url =`/pages/m4/m4?` + this.getMovieUrlParam()
+    console.log("url is "+url)
     wx.navigateTo({
-      url: `/pages/m4/m4`
+      url: url
     })
+
+  },
+
+  getMovieUrlParam() {
+    let str = "id=" + this.data.movie.id + "&title=" + this.data.movie.title + "&image=" + this.data.movie.image
+    console.log(str)
+    return str
 
   },
 
   onTapGotoM6(textOrAudio) {
 
     wx.navigateTo({
-      url: `/pages/m6/m6?type=` + textOrAudio + "&id=" + this.data.movie.id + "&title=" + this.data.movie.title + "&image=" + this.data.movie.image
+      // url: `/pages/m6/m6?type=` + textOrAudio + "&id=" + this.data.movie.id + "&title=" + this.data.movie.title + "&image=" + this.data.movie.image
+      url: `/pages/m6/m6?` + `type =` + textOrAudio + "&" + this.getMovieUrlParam()
     })
 
   },

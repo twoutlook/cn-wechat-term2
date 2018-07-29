@@ -65,6 +65,16 @@ var config = {
 
     // 获取评论列表
     commentList: `${host}/weapp/comment`,
+
+    // by Mark, 2018-07-29 10:54
+    // 添加 movie 评论
+    addCommentMovie: `${host}/weapp/commentmovie`,
+
+    // 获取 movie 评论列表
+    commentMovieList: `${host}/weapp/commentmovie`,
+
+
+
   }
 };
 
