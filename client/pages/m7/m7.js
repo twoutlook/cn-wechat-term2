@@ -8,6 +8,8 @@ m7
 
 
 */
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
 
 
 // pages/m7/m7.js
@@ -20,6 +22,61 @@ Page({
   movie:{}
 
   },
+
+  onTapPublish(event) {
+    let content = this.data.movie.comment
+
+
+    wx.showLoading({
+      title: '正在发表 movie 评论'
+    })
+
+    // this.uploadImage(images => {
+    qcloud.request({
+      url: config.service.addCommentMovie,
+      login: true,
+      method: 'PUT',
+      data: {
+        // images,
+        content,
+        movie_id: this.data.movie.id
+      },
+      success: result => {
+        wx.hideLoading()
+
+        let data = result.data
+
+        if (!data.code) {
+          wx.showToast({
+            title: '发表 movie 评论成功'
+          })
+
+          setTimeout(() => {
+            //wx.navigateBack()
+
+          }, 1500)
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '发表 movie 评论失败'
+          })
+        }
+      },
+      fail: (event) => {
+        console.log("DEBUG ...comment movie fail")
+        console.log(event)
+        wx.hideLoading()
+
+        wx.showToast({
+          icon: 'none',
+          title: '发表 movie 评论失败'
+        })
+      }
+    })
+    // }) // uploadImage
+  },
+
+
 
   /**
    * 生命周期函数--监听页面加载
