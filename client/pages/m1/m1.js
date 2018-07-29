@@ -29,6 +29,13 @@ const _ = require('../../utils/util')
 
 // pages/m1/m1.js
 Page({
+  onTapGotoM5() {
+
+    wx.navigateTo({
+      url: `/pages/m5/m5?movie_id=`+this.data.movie_id+"&comment_id="+this.data.comment_id
+    })
+
+  },
   onTapGotoM2() {
 
     wx.navigateTo({
@@ -48,6 +55,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    movie_id:0,
+    comment_id:0,
     movie: {},
     // commentMovieList: []
     item:{}
@@ -78,6 +87,10 @@ Page({
 
         })
         // var commentId = arr[rnd].id
+        this.setData({
+          comment_id: arr[rnd].id,
+            movie_id: arr[rnd].movie_id
+        })
         this.getMovieDetail(arr[rnd].movie_id)
       },
       fail: result=>{

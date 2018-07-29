@@ -8,7 +8,7 @@
   </view>
 
   <!-- <view class='comment-card' wx:for='{{commentMovieList}}' wx:key='id' wx:for-item='item'> -->
-  <view class='comment-card'>
+  <view class='comment-card'  bindtap='onTapGotoM5'>
 
     <image class='comment-avatar' src='{{item.avatar}}'></image>
     <!-- <view class='comment-cnt'> -->

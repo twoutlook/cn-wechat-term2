@@ -26,6 +26,7 @@ page {
 .comment-card {
   display: flex;
   padding: 30rpx 123rpx 0 126rpx;
+  /* vertical-align: bottom */
 }
 
 .comment-card:last-child .comment-cnt {
@@ -55,8 +56,10 @@ page {
 
 .comment-username {
   flex: 1;
-  /* font-size: 25rpx;
-  line-height: 36rpx; */
+  padding-left: 8rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  /* vertical-align: text-bottom */
   
 }
 
