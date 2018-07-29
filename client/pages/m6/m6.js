@@ -63,6 +63,7 @@ Page({
 
   // not for this project 2, 
   // but structure is good for audio comment
+  /*
   uploadImage(cb) {
     let commentImages = this.data.commentImages
     let images = []
@@ -95,14 +96,25 @@ Page({
       cb && cb(images)
     }
   },
+*/
 
+  getMovieUrlParam(comment) {
+    let str = "id=" + this.data.movie.id + "&title=" + this.data.movie.title + "&image=" + this.data.movie.image + "&comment=" + comment
+    console.log(str)
+    return str
+
+  },
   addComment(event) {
     let content = this.data.commentValue
     if (!content) return
 
     console.log("addComment ")
     console.log(event)
+    wx.navigateTo({
+      url: '/pages/m7/m7?'+this.getMovieUrlParam(content)
+    })
 
+    return
     //DOING...
     // return;
 
@@ -131,7 +143,8 @@ Page({
           })
 
           setTimeout(() => {
-            wx.navigateBack()
+            //wx.navigateBack()
+
           }, 1500)
         } else {
           wx.showToast({

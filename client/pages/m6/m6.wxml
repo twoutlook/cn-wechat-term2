@@ -9,7 +9,7 @@
 
 
       <view class="m3-title">
-        {{movie.title}}xxx BUG xxx{{commentType}}
+        {{movie.title}}
       </view>
       <view class="xxxm3-title" wx:if="{{commentType == 1}}">
         <!-- ... DOING text comment -->
