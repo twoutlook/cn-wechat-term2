@@ -15,7 +15,9 @@ M4 影评列表页
 
 */
 
-
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
+const _ = require('../../utils/util')
 // pages/m4/m4.js
 Page({
 
@@ -23,9 +25,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-movie:{}
+    movie: {},
+    commentMovieList: []
   },
 
+  getCommentList(id) {
+    qcloud.request({
+      url: config.service.commentMovieList,
+      data: {
+        movie_id: id
+      },
+      success: result => {
+        let data = result.data
+        if (!data.code) {
+          this.setData({
+            commentMovieList: data.data.map(item => {
+              let itemDate = new Date(item.create_time)
+              item.createTime = _.formatTime(itemDate)
+              // item.images = item.images ? item.images.split(';;') : []
+              return item
+            })
+          })
+        }
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -33,7 +57,7 @@ movie:{}
     console.log("m4...onLoad")
     console.log(options)
     this.setData({
-      movie:options
+      movie: options
     })
   },
 
