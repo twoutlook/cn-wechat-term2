@@ -60,8 +60,16 @@ router.put('/trolley', validationMiddleware, controllers.trolley.add)
 router.get('/trolley', validationMiddleware, controllers.trolley.list)
 // 更新购物车商品列表
 router.post('/trolley', validationMiddleware, controllers.trolley.update)
+
 // 添加评论
 router.put('/comment', validationMiddleware, controllers.comment.add)
+
+// 2018-07-29 10：36 添加 movie 评论
+router.put('/commentmovie', validationMiddleware, controllers.comment.add)
+
+
+
+
 // 获取评论列表
 router.get('/comment', controllers.comment.list)
 

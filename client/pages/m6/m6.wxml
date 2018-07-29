@@ -11,15 +11,25 @@
       <view class="m3-title">
         {{movie.title}}
       </view>
-      <view class="m3-title" wx:if="{{movie.type == 1}}">
-        ... DOING text comment
+      <view class="xxxm3-title" wx:if="{{movie.type == 1}}">
+        <!-- ... DOING text comment -->
+        <view class='comment-cnt'>
+          <textarea class='comment-ipt' placeholder-class='comment-placeholder' placeholder='请填写你的评价' auto-focus maxlength='255' bindinput='onInput'></textarea>
+
+        </view>
+        <view class="comment-btn {{!commentValue ? 'disabled' : ''}}" bindtap="addComment">提交评价</view>
+
       </view>
       <view class="m3-title" wx:if="{{movie.type == 2}}">
         ... DOING audio comment
       </view>
-      
 
-      
+
+
     </view>
   </view>
+
+
+
+
 </view>
