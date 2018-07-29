@@ -1,2 +1,42 @@
-<!--pages/m5/m5.wxml-->
-<text>pages/m5/m5.wxml</text>
+<view class='m3-card'>
+  <view class="m3-image-box">
+    <image class="m3-image" src="{{movie.image ==''?defaultImg:movie.image}}" mode='widthFix' binderror='whenNoImg'>
+    </image>
+  </view>
+
+  <view class="m3-text-box">
+    <view class="m3-text">
+
+
+      <view class="m3-title">
+        {{movie.title}}
+      </view>
+
+      <view class='comment-card' wx:for='{{commentMovieList}}' wx:key='id' wx:for-item='item'>
+        <image class='comment-avatar' src='{{item.avatar}}'></image>
+        <view class='comment-cnt'>
+          <view class='comment-top'>
+            <view class='comment-username'>{{item.username}}</view>
+            <view class="comment-time">{{item.createTime}}</view>
+          </view>
+          <view class='comment-content'>{{item.content}}</view>
+          <!-- <view class='preview-list' wx:if='{{item.images.length}}'>
+            <image class='preview-item' wx:for='{{item.images}}' wx:for-item='pitem' wx:key='*this' src='{{pitem}}' bindtap='previewImg' data-src='{{pitem}}' data-urls='{{item.images}}'></image>
+          </view> -->
+        </view>
+      </view>
+
+    </view>
+
+
+  </view>
+
+
+
+
+
+</view>
+<view class='buttom-section'>
+  <view class='btn' bindtap='onTapGotoM6'>重新編輯</view>
+  <view class='btn' bindtap='onTapPublish'>發佈影評</view>
+</view>
