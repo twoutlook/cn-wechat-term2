@@ -20,6 +20,7 @@ m1
 
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
+const _ = require('../../utils/util')
 
 // pages/m1/m1.js
 Page({
@@ -42,7 +43,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movie: null
+    movie: {},
+    commentMovieList:[]
   },
 
   /**
@@ -51,7 +53,33 @@ Page({
   onLoad: function(options) {
 
     this.getMovieDetail(1)
+    this.getCommentListLastOne(1)
+         
   },
+
+  getCommentListLastOne(id) {
+    qcloud.request({
+      url: config.service.commentMovieListLastOne,
+      data: {
+        movie_id: id
+      },
+      success: result => {
+        let data = result.data
+        console.log(data)
+        if (!data.code) {
+          this.setData({
+            commentMovieList: data.data.map(item => {
+              let itemDate = new Date(item.create_time)
+              item.createTime = _.formatTime(itemDate)
+              // item.images = item.images ? item.images.split(';;') : []
+              return item
+            })
+          })
+        }
+      },
+    })
+  },
+
   getMovieDetail(id) {
     console.log('...m1 doing  getMovieDetail(), id=' + id)
     console.log(config.service.moviesDetail + id)

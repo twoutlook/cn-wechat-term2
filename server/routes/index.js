@@ -64,10 +64,13 @@ router.post('/trolley', validationMiddleware, controllers.trolley.update)
 // 添加评论
 router.put('/comment', validationMiddleware, controllers.comment.add)
 
-// 2018-07-29 10：36 添加 movie 评论
+// by Mark, 2018-07-29 10：36 添加 movie 评论
 router.put('/commentmovie', validationMiddleware, controllers.commentmovie.add)
 // 获取 MOVIE 评论列表
 router.get('/commentmovie', controllers.commentmovie.list)
+// by Mark, 2018-07-29 19:26
+// 获取 MOVIE 评论列表
+router.get('/commentmovielastone', controllers.commentmovie.listlastone)
 
 
 

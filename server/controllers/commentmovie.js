@@ -35,4 +35,22 @@ module.exports = {
       ctx.state.data = []
     }
   },
+
+
+  /**
+   * by Mark, 2018-07-29 19:28
+   * 获取评论列表, only last one
+   */
+  listlastone: async ctx => {
+    let movieId = +ctx.request.query.movie_id
+
+    if (!isNaN(movieId)) {
+      // select * from commentmovie where commentmovie.movie_id = 1 order by create_time desc LIMIT 0, 1
+      ctx.state.data = await DB.query('select * from commentmovie where commentmovie.movie_id = ?  order by create_time desc LIMIT 0, 1', [movieId])
+    } else {
+      ctx.state.data = []
+    }
+  },
+
+
 }

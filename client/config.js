@@ -73,6 +73,9 @@ var config = {
     // 获取 movie 评论列表
     commentMovieList: `${host}/weapp/commentmovie`,
 
+    // by Mark, 2018-07-29 19:25
+    // 获取 movie 评论列表, for m1
+    commentMovieListLastOne: `${host}/weapp/commentmovielastone`,
 
 
   }

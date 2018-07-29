@@ -11,7 +11,7 @@
       <view class="m3-title">
         {{movie.title}}
       </view>
-      DOING LIST HERE
+  
       <view class='comment-card' wx:for='{{commentMovieList}}' wx:key='id' wx:for-item='item'>
         <image class='comment-avatar' src='{{item.avatar}}'></image>
         <view class='comment-cnt'>
