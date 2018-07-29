@@ -37,6 +37,7 @@ Page({
       },
       success: result => {
         let data = result.data
+        console.log(data)
         if (!data.code) {
           this.setData({
             commentMovieList: data.data.map(item => {
@@ -50,10 +51,52 @@ Page({
       },
     })
   },
+
+
+  getMovieDetail(id) {
+    console.log('...m1 doing  getMovieDetail(), id=' + id)
+    console.log(config.service.moviesDetail + id)
+    wx.showLoading({
+      title: '数据加载中...',
+    })
+    qcloud.request({
+      url: config.service.movieDetail + id,
+      success: result => {
+        wx.hideLoading()
+        console.log('... doing  success')
+
+        console.log(result)
+        console.log(result.data.data)
+
+        if (!result.data.code) {
+          this.setData({
+            movie: result.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '数据加载失败!',
+          })
+        }
+      },
+      fail: result => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '数据加载失败!',
+        })
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    if (options.id ){
+      console.log("when we know which movie id")
+      this.getMovieDetail(options.id)
+      this.getCommentList(options.id)
+      
+      return
+    }
     console.log("m4...onLoad")
     console.log(options)
     this.setData({
