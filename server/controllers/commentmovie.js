@@ -36,6 +36,19 @@ module.exports = {
     }
   },
 
+  /**
+   * 获取 單個评论 
+   */
+  detail: async ctx => {
+    let id = +ctx.request.query.id
+
+    if (!isNaN(id)) {
+      ctx.state.data = await DB.query('select * from commentmovie where commentmovie.id = ?', [id])
+    } else {
+      ctx.state.data = []
+    }
+  },
+
 
   /**
    * by Mark, 2018-07-29 19:28
