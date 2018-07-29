@@ -10,10 +10,15 @@
 7 影评预览页，
 8 个人中心页。
 
+=== Requirement ===
 m1 
 首页 
 随机展示当前热门电影的某一条影评。海报图需跳转至电影详情页；点击 "XX给你推荐了一部电影" 可跳转至该推荐人对此影片的影评详情页；首页还应包含两个按钮，分别跳转至电影列表页和个人中心页。
 
+=== Deployment ===
+1. Get id list of comment, latest 100 only
+2. To get random id
+3. Show movie of comment's id and comment as well
 */
 
 
@@ -44,7 +49,7 @@ Page({
    */
   data: {
     movie: {},
-    commentMovieList:[]
+    commentMovieList: []
   },
 
   /**
@@ -52,9 +57,24 @@ Page({
    */
   onLoad: function(options) {
 
+    // this.getCommentListIdOnly()
     this.getMovieDetail(1)
-    this.getCommentListLastOne(1)
-         
+    // this.getCommentListLastOne(1)
+
+  },
+
+  getCommentListIdOnly() {
+    qcloud.request({
+      url: config.service.commentMovieListIdOnly,
+      data: {
+        movie_id: id
+      },
+      success: result => {
+        let data = result.data
+        console.log(data)
+
+      },
+    })
   },
 
   getCommentListLastOne(id) {
@@ -90,7 +110,7 @@ Page({
       url: config.service.movieDetail + id,
       success: result => {
         wx.hideLoading()
-        console.log('... doing  success')
+        console.log('... M1,getMovieDetail,doing  success')
 
         console.log(result)
         console.log(result.data.data)
