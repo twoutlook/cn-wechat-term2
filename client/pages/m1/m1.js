@@ -99,11 +99,17 @@ Page({
       }
     })
   },
+  onPullDownRefresh() {
+
+    this.setPage(() => {
+      wx.stopPullDownRefresh()
+    })
+  },
   onLoad: function (options) {
     // let commentId = this.getRandomCommentId()
     this.getRandomCommentId()
     // console.log("random comment id is " + commentId)
-    this.getMovieDetail(1)
+    // this.getMovieDetail(1)
     // this.getCommentListLastOne(1)
 
   },
