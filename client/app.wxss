@@ -4,6 +4,21 @@ page {
 }
 
 .buttom-section {
+  background: white;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  font: 32rps;
+  line-height: 100rpx;
+  flex: 1;
+  /* border: 1rpx solid  */
+  color: hsl(0, 0%, 50%);
+}
+
+.buttom-section {
   position: fixed;
   bottom: 0;
   left: 0;

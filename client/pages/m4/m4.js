@@ -52,7 +52,12 @@ Page({
     })
   },
 
-
+  onTapGotoM1() {
+    // console.log("... going to page User")
+    wx.navigateTo({
+      url: `/pages/m1/m1`
+    })
+  },
   getMovieDetail(id) {
     console.log('...m1 doing  getMovieDetail(), id=' + id)
     console.log(config.service.moviesDetail + id)

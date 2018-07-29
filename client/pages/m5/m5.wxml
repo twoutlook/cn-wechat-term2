@@ -37,6 +37,6 @@
 
 </view>
 <view class='buttom-section'>
-  <view class='btn' bindtap='onTapGotoM6'>重新編輯</view>
-  <view class='btn' bindtap='onTapPublish'>發佈影評</view>
+  <view class='btn' bindtap='onTapGotoM6'>DOING 收藏影評</view>
+  <view class='btn' bindtap='onTapPublish'>DOING寫影評</view>
 </view>

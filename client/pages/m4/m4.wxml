@@ -33,3 +33,7 @@
 
 
 </view>
+<view class='buttom-section'>
+  <view class='btn' bindtap='onTapGotoM1'>回到首頁</view>
+
+</view>
