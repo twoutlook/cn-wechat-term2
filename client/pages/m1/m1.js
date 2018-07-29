@@ -49,32 +49,50 @@ Page({
    */
   data: {
     movie: {},
-    commentMovieList: []
+    // commentMovieList: []
+    item:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
 
-    // this.getCommentListIdOnly()
+  getRandomCommentId() {
+    qcloud.request({
+      url: config.service.m001,
+  
+      success: result => {
+      
+        let arr = result.data.data
+        console.log (arr)
+        // to verify random
+        // for(var i=0;i<100;i++){
+        //  console.log (Math.floor(Math.random() * arr.length))  
+        // }
+        var rnd = Math.floor(Math.random() * arr.length)
+        console.log("rnd is "+rnd)
+        console.log("comment id , this time is "+arr[rnd].id)
+        console.log( arr[rnd])
+        this.setData({
+          item: arr[rnd]
+
+        })
+        // var commentId = arr[rnd].id
+        this.getMovieDetail(arr[rnd].movie_id)
+      },
+      fail: result=>{
+        console.log("Fail to get a random movie comment id!!!")
+
+      }
+    })
+  },
+  onLoad: function (options) {
+    // let commentId = this.getRandomCommentId()
+    this.getRandomCommentId()
+    // console.log("random comment id is " + commentId)
     this.getMovieDetail(1)
     // this.getCommentListLastOne(1)
 
-  },
-
-  getCommentListIdOnly() {
-    qcloud.request({
-      url: config.service.commentMovieListIdOnly,
-      data: {
-        movie_id: id
-      },
-      success: result => {
-        let data = result.data
-        console.log(data)
-
-      },
-    })
   },
 
   getCommentListLastOne(id) {

@@ -74,7 +74,7 @@ router.get('/commentmovielastone', controllers.commentmovie.listlastone)
 
 // by Mark, 2018-07-29 20:37
 // 获取 MOVIE 评论 id 列表
-// router.get('/commentmovieidonly', controllers.commentmovie.idonly)
+router.get('/m001', controllers.commentmovie.m001)
 
 
 // 获取评论列表

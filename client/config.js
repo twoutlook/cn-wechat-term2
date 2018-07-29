@@ -79,7 +79,7 @@ var config = {
 
     // by Mark, 2018-07-29 20:36
     // 获取 movie 评论列表, for m1
-    commentMovieListIdOnly: `${host}/weapp/commentmovieidonly`,
+    m001: `${host}/weapp/m001`,
 
   }
 };

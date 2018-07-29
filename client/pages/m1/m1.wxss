@@ -55,6 +55,9 @@ page {
 
 .comment-username {
   flex: 1;
+  /* font-size: 25rpx;
+  line-height: 36rpx; */
+  
 }
 
 .comment-content {

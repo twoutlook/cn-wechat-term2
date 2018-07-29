@@ -56,10 +56,10 @@ module.exports = {
    * by Mark, 2018-07-29 20:38
    * 获取评论列表, only last one
    */
-  // listidonly: async ctx => {
+  m001: async ctx => {
 
-  //   ctx.state.data = await DB.query('select id from commentmovie  order by create_time desc LIMIT 0, 100')
+    ctx.state.data = await DB.query('select * from commentmovie  order by create_time desc LIMIT 0, 12')
 
-  // },
+  },
 
 }
