@@ -23,6 +23,12 @@ Page({
 
   },
 
+  onTapGotoM6(event) {
+    wx.navigateBack({
+      movie:this.data.movie
+    })
+  },
+
   onTapPublish(event) {
     let content = this.data.movie.comment
 
