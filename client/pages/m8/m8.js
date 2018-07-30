@@ -24,9 +24,17 @@ Page({
   data: {
     userInfo: null,
     locationAuthType: app.data.locationAuthType,
-    commentMovieList:[]
+    commentMovieList:[],
+    index:0,
+    array: ['已收藏的', '已发布的'],
+  
   },
-
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
   // onTapAddress() {
   //   wx.showToast({
   //     icon: 'none',

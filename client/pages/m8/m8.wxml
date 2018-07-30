@@ -17,6 +17,16 @@
     <view class="user-name">{{userInfo.nickName}}</view>
   </view>
   <view class="user-split"></view>
+
+<view class="section">
+  <!-- <view class="section__title">普通选择器</view> -->
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      影评類別：{{array[index]}}
+    </view>
+  </picker>
+</view>
+
   <view class='product-row' wx:for='{{commentMovieList}}' wx:key='id' bindtap='onTapGotoM3' data-id='{{item.id}}'>
 
 
