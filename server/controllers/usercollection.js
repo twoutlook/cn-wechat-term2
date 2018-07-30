@@ -26,30 +26,30 @@ module.exports = {
   /**
    * 获取 user collection 列表, user
    */
-  list: async ctx => {
-    let user = ctx.state.$wxInfo.userinfo.openId
+  // list: async ctx => {
+  //   let user = ctx.state.$wxInfo.userinfo.openId
 
-    if (!isNaN(user)) {
-      ctx.state.data = await DB.query('select * from usercollection where user = ?', [user])
-    } else {
-      ctx.state.data = []
-    }
-  },
+  //   if (!isNaN(user)) {
+  //     ctx.state.data = await DB.query('select * from usercollection where user = ?', [user])
+  //   } else {
+  //     ctx.state.data = []
+  //   }
+  // },
 
   /**
    * 获取 user collection 列表, user
    */
   detail: async ctx => {
-    let user = ctx.state.$wxInfo.userinfo.openId
+    // let user = ctx.state.$wxInfo.userinfo.openId
     let comment_id = +ctx.request.body.comment_id
 
   //TODO 
   // not consider user right now
-    if (!isNaN(user)) {
+    // if (!isNaN(user)) {
       ctx.state.data = await DB.query('select * from usercollection where comment_id = ?', [comment_id])
-    } else {
-      ctx.state.data = []
-    }
+    // } else {
+      // ctx.state.data = []
+    // }
   },
 
   /**

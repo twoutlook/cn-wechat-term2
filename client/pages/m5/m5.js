@@ -28,6 +28,8 @@ Page({
 
   },
   toAddCollection() {
+    console.log("  ###toAddCollection " + config.service.userCollectionCommentid)
+
     qcloud.request({
       url: config.service.userCollectionCommentid,
       data: {

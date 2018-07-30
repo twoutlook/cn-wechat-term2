@@ -91,7 +91,7 @@ var config = {
     addUserCollection: `${host}/weapp/usercollection`,
 
     // 获取 user collection 列表
-    userCollectionList: `${host}/weapp/usercollection`,
+    // userCollectionList: `${host}/weapp/usercollection`,
     userCollectionCommentid: `${host}/weapp/usercollection`,
 
     // userCollectionListByUserComment: `${host}/weapp/usercollectionbyusercomment`,
