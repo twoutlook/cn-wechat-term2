@@ -12,7 +12,20 @@
         {{movie.title}}
       </view>
 
+      <view class='comment-card'>
+        <image class='comment-avatar' src='{{comment.avatar}}'></image>
+        <view class='comment-cnt'>
+          <view class='comment-top'>
+            <view class='comment-username'>{{comment.username}}</view>
+            <view class="comment-time">{{comment.createTime}}</view>
+          </view>
+          <view class='comment-content'>{{comment.content}}</view>
+        </view>
+      </view>
+
+
       <view class='comment-card' wx:for='{{commentMovieList}}' wx:key='id' wx:for-item='item'>
+        <!-- <view  bindtap='onTapToCollect' data-commentid='{{item.comment_id}}'> -->
         <image class='comment-avatar' src='{{item.avatar}}'></image>
         <view class='comment-cnt'>
           <view class='comment-top'>
@@ -24,8 +37,8 @@
             <image class='preview-item' wx:for='{{item.images}}' wx:for-item='pitem' wx:key='*this' src='{{pitem}}' bindtap='previewImg' data-src='{{pitem}}' data-urls='{{item.images}}'></image>
           </view> -->
         </view>
+        <!-- </view> -->
       </view>
-
     </view>
 
 

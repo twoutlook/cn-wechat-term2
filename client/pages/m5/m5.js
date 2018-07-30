@@ -17,7 +17,9 @@ const _ = require('../../utils/util')
 Page({
   data: {
     movie: {},
-    commentMovieList: []
+    commentMovieList: [],
+    comment: {}
+
   },
 
   /**
@@ -63,16 +65,25 @@ Page({
       },
       success: result => {
         let data = result.data
-        console.log("m5,getCommentDetail")
+        console.log("m5,getCommentDetail, convert it to non-array")
         console.log(data)
+        var oneComment=data.data[0]
+        console.log("m5,getCommentDetail, oneComment as follows")
+        console.log(oneComment)
+
         if (!data.code) {
+          var comment = data.data[0]
+
+          comment.createTime = _.formatTime(new Date(comment.create_time))
           this.setData({
-            commentMovieList: data.data.map(item => {
-              let itemDate = new Date(item.create_time)
-              item.createTime = _.formatTime(itemDate)
-              // item.images = item.images ? item.images.split(';;') : []
-              return item
-            })
+            // commentMovieList: data.data.map(item => {
+            //   let itemDate = new Date(item.create_time)
+            //   item.createTime = _.formatTime(itemDate)
+            //   return item
+            // }),
+
+            comment: comment
+
           })
         }
       },
