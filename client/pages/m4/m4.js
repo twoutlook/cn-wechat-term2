@@ -31,10 +31,10 @@ Page({
 
   getCommentList(id) {
     qcloud.request({
-      url: config.service.commentMovieList,
-      data: {
-        movie_id: id
-      },
+      url: config.service.commentMovieList+"?movie="+id,
+      // data: {
+      //   movie_id: id
+      // },
       success: result => {
         let data = result.data
         console.log(data)
