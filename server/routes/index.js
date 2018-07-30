@@ -91,7 +91,7 @@ router.get('/comment', controllers.comment.list)
 // by Mark, 2018-07-30 10：49 添加 user collection
 router.put('/usercollection', validationMiddleware, controllers.usercollection.add)
 // 获取 MOVIE 评论列表
-// router.get('/usercollection/:comment_id', controllers.usercollection.detail)
+router.get('/usercollection/:comment_id', controllers.usercollection.detail)
 // router.get('/usercollectionbyusercomment', controllers.usercollection.listbyusercomment)
 
 

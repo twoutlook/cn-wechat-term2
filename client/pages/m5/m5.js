@@ -39,6 +39,7 @@ Page({
 
         console.log("do we have this comment?")
         console.log(res)
+      
         if (res.data.data.length==0){
           console.log("given comment is not on usercomment list yet, add it")
 
@@ -66,20 +67,6 @@ Page({
         }
       },
       fail: res => {
-        /**
-         * 获取微信用户信息失败，请检查网络状态
-         * 
-         * 为优化用户体验，使用 wx.getUserInfo 接口直接弹出授权框的开发方式将逐步不再支持。
-         * 从2018年4月30日开始，小程序与小游戏的体验版、开发版调用 wx.getUserInfo 接口，将无法弹出授权询问框，默认调用失败
-         * 
-         * RequestError {type: "Cannot read property 'userinfo' of undefined", message: "登录态已过期"}
-message
-:
-"登录态已过期"
-type
-:
-"Cannot read property 'userinfo' of undefined"
-         */
         console.log("Fail to userCollectionListByUserComment!!! to DEBUG, as follows")
         console.log(res)
 
