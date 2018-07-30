@@ -73,6 +73,7 @@ var config = {
     // 获取 movie 评论列表
     commentMovieList: `${host}/weapp/commentmovie`,
 
+    commentMovieListByUser: `${host}/weapp/commentmoviebyuser`,
 
 
     commentMovieDetail: `${host}/weapp/commentmoviedetail`,

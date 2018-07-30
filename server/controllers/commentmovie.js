@@ -28,16 +28,25 @@ module.exports = {
    * 获取 [user|movie] movie 评论列表
    *   // https://stackoverflow.com/questions/30967822/when-do-i-use-path-params-vs-query-params-in-a-restful-api
    * 
+   * SELECT a.*,b.title,b.image
+FROM `commentmovie`  a,movies b
+where a.movie_id=b.id
+
+and user = 'ot3ho5G2gWq2duJcGlNVRx_2NzG4'
+   * 
+   * 
    */
   listbyuser: async ctx => {
     // let user = ctx.state.$wxInfo.userinfo.openId
 
     // let movie_id = +ctx.request.query.movie
     let user = ctx.request.query.user
+    let sql = ' SELECT a.*, b.title, b.image FROM commentmovie a, movies b     where a.movie_id=b.id' //     and user = ?'
     if (user!=null) {
-      ctx.state.data = await DB.query('select * from commentmovie where  user = ?', [user])
+      ctx.state.data = await DB.query(sql+ ' and user = ?', [user])
+
     } else {
-      ctx.state.data = await DB.query('select * from commentmovie ')
+      ctx.state.data = await DB.query(sql)
     }
   },
 

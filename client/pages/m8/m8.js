@@ -1,4 +1,8 @@
 // pages/user/user.js
+
+const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
+const config = require('../../config.js')
+const _ = require('../../utils/util')
 const app = getApp()
 
 Page({
@@ -8,7 +12,8 @@ Page({
    */
   data: {
     userInfo: null,
-    locationAuthType: app.data.locationAuthType
+    locationAuthType: app.data.locationAuthType,
+    commentMovieList:[]
   },
 
   // onTapAddress() {
@@ -56,6 +61,31 @@ Page({
 
   },
 
+  setCommentListByUser(user) {
+    qcloud.request({
+      url: config.service.commentMovieListByUser+"?user="+user,
+    
+      success: result => {
+        let data = result.data
+        console.log(data)
+        if (!data.code) {
+          this.setData({
+            commentMovieList: data.data.map(item => {
+              let itemDate = new Date(item.create_time)
+              item.createTime = _.formatTime(itemDate)
+              // item.images = item.images ? item.images.split(';;') : []
+              return item
+            })
+          })
+        }
+      },
+      fail:res=>{
+        console.log(res)
+
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -69,7 +99,7 @@ Page({
    
         console.log("userInfo")
         console.log(userInfo.openId+" nickName"+userInfo.nickName)
-
+        this.setCommentListByUser(userInfo.openId) 
         this.setData({
           userInfo
         })
