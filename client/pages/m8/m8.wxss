@@ -121,3 +121,11 @@ page {
   height: 60rpx;
   border-radius: 50%;
 }
+
+.user-avatar-and-name{
+  display: flex;
+    font-size: 30rpx;
+  line-height: 42rpx;
+  /* padding: 8rpx 123rpx 0 126rpx; */
+  /* vertical-align: bottom */
+}

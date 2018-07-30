@@ -17,27 +17,32 @@
     <view class="user-name">{{userInfo.nickName}}</view>
   </view>
   <view class="user-split"></view>
-<view class='product-row' wx:for='{{commentMovieList}}' wx:key='id' bindtap='onTapGotoM3' data-id='{{item.id}}'>
+  <view class='product-row' wx:for='{{commentMovieList}}' wx:key='id' bindtap='onTapGotoM3' data-id='{{item.id}}'>
 
 
 
-  <view class='m2-card'>
-    <view class='m2-left'>
+    <view class='m2-card'>
+      <view class='m2-left'>
 
-      <image class="m2-img" src="{{item.image ==''?defaultImg:item.image}}" mode='widthFix' binderror='whenNoImg'>
-      </image>
-    </view>
-    <view class='m2-right'>
-      <view class="m2-title">
-        {{item.title}}
+        <image class="m2-img" src="{{item.image ==''?defaultImg:item.image}}" mode='widthFix' binderror='whenNoImg'>
+        </image>
       </view>
-   {{item.content}}
-     
-         <image class='comment-avatar' src='{{item.avatar}}'></image>
+      <view class='m2-right'>
+        <view class="m2-title">
+          {{item.title}}
+        </view>
+        {{item.content}}
+        <view class='user-avatar-and-name'>
+          <image class='comment-avatar' src='{{item.avatar}}'></image>
           <view class='comment-username'>{{item.username}}</view>
+        </view>
+      </view>
+
     </view>
 
   </view>
-
 </view>
+<view class='buttom-section'>
+  <view class='btn' bindtap='onTapGotoM1'>回到首頁</view>
+
 </view>

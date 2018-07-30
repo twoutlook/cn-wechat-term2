@@ -58,6 +58,19 @@ Page({
       url: `/pages/m1/m1`
     })
   },
+
+
+  onTapGotoM5(event) {
+    console.log(this.data)
+    console.log(event)
+
+    var movie_id = this.data.movie.id
+    var comment_id = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/m5/m5?comment_id=` + comment_id +`&movie_id=`+movie_id
+    })
+  },
+
   getMovieDetail(id) {
     console.log('...m1 doing  getMovieDetail(), id=' + id)
     console.log(config.service.moviesDetail + id)

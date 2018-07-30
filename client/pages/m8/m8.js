@@ -6,7 +6,18 @@ const _ = require('../../utils/util')
 const app = getApp()
 
 Page({
+  onTapGotoM1(event) {
 
+    // by Mark, 2018-07-30 20：09
+    // 驗証：來回十次就不動了
+    // wx.navigateTo({
+    //   url: '/pages/m1/m1',
+    // })
+    wx.navigateBack({
+      
+    })
+
+  },
   /**
    * 页面的初始数据
    */

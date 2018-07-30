@@ -12,7 +12,7 @@
         {{movie.title}}
       </view>
   
-      <view class='comment-card' wx:for='{{commentMovieList}}' wx:key='id' wx:for-item='item'>
+      <view class='comment-card' wx:for='{{commentMovieList}}' wx:key='id' wx:for-item='item'  bindtap='onTapGotoM5' data-id='{{item.id}}'>
         <image class='comment-avatar' src='{{item.avatar}}'></image>
         <view class='comment-cnt'>
           <view class='comment-top'>
