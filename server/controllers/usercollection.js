@@ -39,18 +39,18 @@ module.exports = {
   /**
    * 获取 user collection 列表, user
    */
-  commentid: async ctx => {
-    let user = ctx.state.$wxInfo.userinfo.openId
-    let comment_id = +ctx.request.body.comment_id
+  // commentid: async ctx => {
+  //   let user = ctx.state.$wxInfo.userinfo.openId
+  //   let comment_id = +ctx.request.body.comment_id
 
-  //TODO 
-  // not consider user right now
-    if (!isNaN(user)) {
-      ctx.state.data = await DB.query('select * from usercollection where comment_id = ?', [comment_id])
-    } else {
-      ctx.state.data = []
-    }
-  },
+  // //TODO 
+  // // not consider user right now
+  //   if (!isNaN(user)) {
+  //     ctx.state.data = await DB.query('select * from usercollection where comment_id = ?', [comment_id])
+  //   } else {
+  //     ctx.state.data = []
+  //   }
+  // },
 
   /**
    * 获取 user collection 列表, user and comment_id
@@ -64,6 +64,6 @@ module.exports = {
     } else {
       ctx.state.data = []
     }
-  },
+  }
 
 }
