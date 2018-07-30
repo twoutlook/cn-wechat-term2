@@ -70,7 +70,10 @@ router.put('/commentmovie', validationMiddleware, controllers.commentmovie.add)
 router.get('/commentmoviebymovie/:id', controllers.commentmovie.bymovie)
 router.get('/commentmovie/:id', controllers.commentmovie.byid)
 
-router.get('/commentmovie', controllers.commentmovie.list)
+// commentmovie?movie=3
+router.get('/commentmovie', controllers.commentmovie.list) 
+
+router.get('/commentmoviebyuser', controllers.commentmovie.listbyuser) 
 
 router.get('/commentmoviedetail', controllers.commentmovie.detail)
 

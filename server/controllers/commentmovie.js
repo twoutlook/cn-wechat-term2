@@ -25,17 +25,35 @@ module.exports = {
 
 
   /**
-     * 获取 all  评论列表
-     */
-  list: async ctx => {
-    ctx.state.data = await DB.query('select * from commentmovie ')
-    // let movieId = +ctx.request.query.movie_id
+   * 获取 [user|movie] movie 评论列表
+   *   // https://stackoverflow.com/questions/30967822/when-do-i-use-path-params-vs-query-params-in-a-restful-api
+   * 
+   */
+  listbyuser: async ctx => {
+    // let user = ctx.state.$wxInfo.userinfo.openId
 
-    // if (!isNaN(movieId)) {
-    //   ctx.state.data = await DB.query('select * from commentmovie where commentmovie.movie_id = ?', [movieId])
-    // } else {
-    //   ctx.state.data = []
-    // }
+    // let movie_id = +ctx.request.query.movie
+    let user = ctx.request.query.user
+    if (user!=null) {
+      ctx.state.data = await DB.query('select * from commentmovie where  user = ?', [user])
+    } else {
+      ctx.state.data = await DB.query('select * from commentmovie ')
+    }
+  },
+
+
+  /**
+   * 获取 all  评论列表
+   *   // https://stackoverflow.com/questions/30967822/when-do-i-use-path-params-vs-query-params-in-a-restful-api
+   * 
+   */
+  list: async ctx => {
+    let movie_id = +ctx.request.query.movie
+    if (isNaN(movie_id)) {
+      ctx.state.data = await DB.query('select * from commentmovie ')
+    } else {
+      ctx.state.data = await DB.query('select * from commentmovie where commentmovie.movie_id = ?', [movie_id])
+    }
   },
 
   /**
@@ -49,9 +67,27 @@ module.exports = {
     if (!isNaN(movie_id)) {
       temp = await DB.query('select * from commentmovie where commentmovie.movie_id = ?', [movie_id])
     } else {
-      temp  = [{'movie_id':movie_id}]
+      temp = [{
+        'movie_id': movie_id
+      }]
     }
-    ctx.state.data = temp 
+    ctx.state.data = temp
+  },
+
+  // https://stackoverflow.com/questions/30967822/when-do-i-use-path-params-vs-query-params-in-a-restful-api
+  bymovie: async ctx => {
+    // let movie_id = +ctx.request.query.id
+    let movie_id = +ctx.params.id
+
+    let temp
+    if (!isNaN(movie_id)) {
+      temp = await DB.query('select * from commentmovie where commentmovie.movie_id = ?', [movie_id])
+    } else {
+      temp = [{
+        'movie_id': movie_id
+      }]
+    }
+    ctx.state.data = temp
   },
 
   byid: async ctx => {
@@ -62,7 +98,9 @@ module.exports = {
     if (!isNaN(id)) {
       temp = await DB.query('select * from commentmovie where commentmovie.id = ?', [id])
     } else {
-      temp = [{ 'movie_id': movie_id }]
+      temp = [{
+        'movie_id': movie_id
+      }]
     }
     ctx.state.data = temp
   },

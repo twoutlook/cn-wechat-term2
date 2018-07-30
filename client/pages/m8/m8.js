@@ -30,7 +30,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   
   },
 
   onTapLogin: function () {
@@ -66,6 +66,10 @@ Page({
     })
     app.checkSession({
       success: ({ userInfo }) => {
+   
+        console.log("userInfo")
+        console.log(userInfo.openId+" nickName"+userInfo.nickName)
+
         this.setData({
           userInfo
         })
