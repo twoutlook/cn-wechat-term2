@@ -99,12 +99,12 @@ Page({
       }
     })
   },
-  onPullDownRefresh() {
+  // onPullDownRefresh() {
 
-    this.setPage(() => {
-      wx.stopPullDownRefresh()
-    })
-  },
+  //   this.setPage(() => {
+  //     wx.stopPullDownRefresh()
+  //   })
+  // },
   onLoad: function (options) {
     // let commentId = this.getRandomCommentId()
     this.getRandomCommentId()

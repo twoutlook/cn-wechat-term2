@@ -15,7 +15,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("home.js => onLoad")
+    console.log(this.data.productList)
     this.getProductList()
+    console.log("after getProductList")
+    console.log(this.data.productList)
+
   },
 
   getProductList() {
@@ -29,6 +34,10 @@ Page({
         wx.hideLoading()
 
         if (!result.data.code) {
+    
+          console.log("within getProductList")
+          console.log(result.data.data)
+
           this.setData({
             productList: result.data.data
           })

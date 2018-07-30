@@ -22,6 +22,71 @@ Page({
 
   },
 
+  onTapToCollect() {
+    console.log("  check if in user's collection first, 自己的不收藏，已收藏的不重覆收藏")
+    this.toAddCollection()
+
+  },
+  toAddCollection() {
+    qcloud.request({
+      url: config.service.userCollectionCommentid,
+      data: {
+        comment_id: this.data.comment.id
+      },
+      success: res => {
+
+        // let arr = res.data.data
+
+        console.log("do we have this comment?")
+        console.log(res)
+        if (res.data.data.length==0){
+          console.log("given comment is not on usercomment list yet, add it")
+
+          wx.showLoading({
+            title: '正在收藏'
+          })
+
+
+          qcloud.request({
+            url: config.service.addUserCollection,
+            login: true,
+            method: 'PUT',
+            data: {
+              // images,
+              // content,
+              comment_id: this.data.comment_id
+            },
+            success: res => {
+              wx.hideLoading()
+            },
+          })
+        }else{
+          console.log("here is length >0" + res.data.data.length)
+
+        }
+      },
+      fail: res => {
+        /**
+         * 获取微信用户信息失败，请检查网络状态
+         * 
+         * 为优化用户体验，使用 wx.getUserInfo 接口直接弹出授权框的开发方式将逐步不再支持。
+         * 从2018年4月30日开始，小程序与小游戏的体验版、开发版调用 wx.getUserInfo 接口，将无法弹出授权询问框，默认调用失败
+         * 
+         * RequestError {type: "Cannot read property 'userinfo' of undefined", message: "登录态已过期"}
+message
+:
+"登录态已过期"
+type
+:
+"Cannot read property 'userinfo' of undefined"
+         */
+        console.log("Fail to userCollectionListByUserComment!!! to DEBUG, as follows")
+        console.log(res)
+
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
