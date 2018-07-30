@@ -54,9 +54,14 @@ Page({
 
   onTapGotoM1() {
     // console.log("... going to page User")
-    wx.navigateTo({
+    //http://open.wechat.com/cgi-bin/newreadtemplate?t=overseas_open/docs/mini-programs/development/api/ui-navigate
+    // wx.navigateTo({
+    //   url: `/pages/m1/m1`
+    // })
+    wx.reLaunch({
       url: `/pages/m1/m1`
     })
+
   },
 
 
