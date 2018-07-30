@@ -41,17 +41,30 @@ module.exports = {
   /**
    * 获取评论列表
    */
-  movie: async ctx => {
+  bymovie: async ctx => {
     // let movie_id = +ctx.request.query.id
     let movie_id = +ctx.params.id
 
     let temp
     if (!isNaN(movie_id)) {
-      temp = (await DB.query('select * from commentmovie where commentmovie.movie_id = ?', [movie_id]))[0]
+      temp = await DB.query('select * from commentmovie where commentmovie.movie_id = ?', [movie_id])
     } else {
       temp  = [{'movie_id':movie_id}]
     }
     ctx.state.data = temp 
+  },
+
+  byid: async ctx => {
+    // let movie_id = +ctx.request.query.id
+    let id = +ctx.params.id
+
+    let temp
+    if (!isNaN(id)) {
+      temp = await DB.query('select * from commentmovie where commentmovie.id = ?', [id])
+    } else {
+      temp = [{ 'movie_id': movie_id }]
+    }
+    ctx.state.data = temp
   },
 
   /**
