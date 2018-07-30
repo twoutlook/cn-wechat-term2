@@ -73,6 +73,8 @@ var config = {
     // 获取 movie 评论列表
     commentMovieList: `${host}/weapp/commentmovie`,
 
+
+
     commentMovieDetail: `${host}/weapp/commentmoviedetail`,
 
     // by Mark, 2018-07-29 19:25
@@ -82,6 +84,16 @@ var config = {
     // by Mark, 2018-07-29 20:36
     // 获取 movie 评论列表, for m1
     m001: `${host}/weapp/m001`,
+
+
+    // by Mark, 2018-07-30 10:51
+    // 添加 user collection
+    addUserCollection: `${host}/weapp/usercollection`,
+
+    // 获取 user collection 列表
+    userCollectionList: `${host}/weapp/usercollection`,
+
+
 
   }
 };

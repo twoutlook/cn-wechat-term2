@@ -43,6 +43,15 @@ CREATE TABLE `commentmovie` (
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `usercollection` (
+   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `user` varchar(255) NOT NULL,
+  `comment_id` int(11) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
 -- --------------------------------------------------------
 
 --
