@@ -25,7 +25,10 @@
     </view>
   </view>
 </view>
+
+
 <view class='buttom-section'>
-  <view class='btn'  bindtap='onTapToCollect'>DOING 收藏影評</view>
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onTapToCollect">收藏影評</button>
+  <!-- <view class='btn'  bindtap='onTapToCollect'>DOING 收藏影評</view> -->
   <view class='btn' bindtap='onTapPublish'>DOING寫影評</view>
 </view>

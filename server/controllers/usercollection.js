@@ -16,8 +16,8 @@ module.exports = {
     let comment_id = +ctx.request.body.comment_id
 
 
-    if (!isNaN(user) && !isNaN(comment_id)) {
-      await DB.query('INSERT INTO usercollection(user, comment_id) VALUES (?, ?)', [user, comment_id])
+    if (!isNaN(comment_id)) {
+      ctx.state.data =  await DB.query('INSERT INTO usercollection(user, comment_id) VALUES (?, ?)', [user, comment_id])
     }
 
     ctx.state.data = {}

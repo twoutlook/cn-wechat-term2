@@ -7,66 +7,57 @@ m5
 
 点击 "收藏" 按钮可收藏该条影评。除此之外还应有一个按钮，当用户没有评价过此影片时，点击此按钮弹出底部菜单，可让用户选择添加文字影评还是语音影评；当用户评价过此影片时，点击此按钮能够跳转到用户对此影片的影评详情页。
 
+下左 btn 收藏影評
+按需求規格沒有跳轉到指定位置
+設計如果該影評已收藏，則 btn 呈灰色，該用戶知道不能作用。
 
 
 */
 
+var app = getApp()
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
 const _ = require('../../utils/util')
 Page({
   data: {
+    userInfo: {},
     movie: {},
     commentMovieList: [],
-    comment: {}
-
+    comment: {},
+ canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   onTapToCollect() {
     console.log("  check if in user's collection first, 自己的不收藏，已收藏的不重覆收藏")
-    this.toAddCollection()
+    app.checkSession({
+      success: ({ userInfo }) => {
+
+        console.log("userInfo")
+        console.log(userInfo.openId + " nickName" + userInfo.nickName)
+        this.toAddCollection()
+        this.setData({
+          userInfo
+        })
+      }
+    })
+   
 
   },
   toAddCollection() {
     console.log("  ###toAddCollection " + config.service.userCollectionCommentid)
 
     qcloud.request({
-      url: config.service.userCollectionCommentid,
+      url: config.service.addUserCollection,
+      login: true,
+      method: 'PUT',
+
       data: {
         comment_id: this.data.comment.id
       },
       success: res => {
 
-        // let arr = res.data.data
-
-        console.log("do we have this comment?")
         console.log(res)
-      
-        if (res.data.data.length==0){
-          console.log("given comment is not on usercomment list yet, add it")
-
-          wx.showLoading({
-            title: '正在收藏'
-          })
-
-
-          qcloud.request({
-            url: config.service.addUserCollection,
-            login: true,
-            method: 'PUT',
-            data: {
-              // images,
-              // content,
-              comment_id: this.data.comment_id
-            },
-            success: res => {
-              wx.hideLoading()
-            },
-          })
-        }else{
-          console.log("here is length >0" + res.data.data.length)
-
-        }
+     
       },
       fail: res => {
         console.log("Fail to userCollectionListByUserComment!!! to DEBUG, as follows")
@@ -76,10 +67,31 @@ Page({
     })
   },
 
+
+  bindGetUserInfo: function (e) {
+    console.log(e.detail.userInfo)
+    console.log("######## to have openid")
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+            }
+          })
+        }
+      }
+    })
+
+
     console.log("m5, onLoad")
     console.log(options)
     this.getMovieDetail(options.movie_id)

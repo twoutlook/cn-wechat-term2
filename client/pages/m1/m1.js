@@ -73,15 +73,15 @@ Page({
       success: result => {
       
         let arr = result.data.data
-        console.log (arr)
+        // console.log (arr)
         // to verify random
         // for(var i=0;i<100;i++){
         //  console.log (Math.floor(Math.random() * arr.length))  
         // }
         var rnd = Math.floor(Math.random() * arr.length)
-        console.log("rnd is "+rnd)
-        console.log("comment id , this time is "+arr[rnd].id)
-        console.log( arr[rnd])
+        // console.log("rnd is "+rnd)
+        // console.log("comment id , this time is "+arr[rnd].id)
+        // console.log( arr[rnd])
         this.setData({
           item: arr[rnd]
 
@@ -138,8 +138,8 @@ Page({
   },
 
   getMovieDetail(id) {
-    console.log('...m1 doing  getMovieDetail(), id=' + id)
-    console.log(config.service.moviesDetail + id)
+    // console.log('...m1 doing  getMovieDetail(), id=' + id)
+    // console.log(config.service.moviesDetail + id)
     wx.showLoading({
       title: '数据加载中...',
     })
@@ -147,10 +147,10 @@ Page({
       url: config.service.movieDetail + id,
       success: result => {
         wx.hideLoading()
-        console.log('... M1,getMovieDetail,doing  success')
+        // console.log('... M1,getMovieDetail,doing  success')
 
-        console.log(result)
-        console.log(result.data.data)
+        // console.log(result)
+        // console.log(result.data.data)
 
         if (!result.data.code) {
           this.setData({

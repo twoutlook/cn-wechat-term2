@@ -48,8 +48,29 @@ App({
     audio:2
   },
   
+  // https://developers.weixin.qq.com/miniprogram/dev/api/signature.html#wxchecksessionobject
   onLaunch: function () {
     qcloud.setLoginUrl(config.service.loginUrl)
+
+    // https://developers.weixin.qq.com/miniprogram/dev/api/api-login.html#wxloginobject
+    wx.login({
+      success: function (res) {
+        console.log('by Mark, 登录OK！ TODO 用户登录凭证（有效期五分钟）。开发者需要在开发者服务器后台调用 api，使用 code 换取 openid 和 session_key 等信息 https://developers.weixin.qq.com/miniprogram/dev/api/api-login.html#wxloginobject')
+        console.log( res)
+
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: config.service.loginUrl,
+            data: {
+              code: res.code
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    });
   },
 
   data: {
