@@ -67,6 +67,8 @@ router.put('/comment', validationMiddleware, controllers.comment.add)
 // by Mark, 2018-07-29 10：36 添加 movie 评论
 router.put('/commentmovie', validationMiddleware, controllers.commentmovie.add)
 // 获取 MOVIE 评论列表
+router.get('/commentmovie/:id', controllers.commentmovie.movie)
+
 router.get('/commentmovie', controllers.commentmovie.list)
 
 router.get('/commentmoviedetail', controllers.commentmovie.detail)

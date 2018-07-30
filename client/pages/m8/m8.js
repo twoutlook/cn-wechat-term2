@@ -11,19 +11,19 @@ Page({
     locationAuthType: app.data.locationAuthType
   },
 
-  onTapAddress() {
-    wx.showToast({
-      icon: 'none',
-      title: '此功能暂未开放'
-    })
-  },
+  // onTapAddress() {
+  //   wx.showToast({
+  //     icon: 'none',
+  //     title: '此功能暂未开放'
+  //   })
+  // },
 
-  onTapKf() {
-    wx.showToast({
-      icon: 'none',
-      title: '此功能暂未开放'
-    })
-  },
+  // onTapKf() {
+  //   wx.showToast({
+  //     icon: 'none',
+  //     title: '此功能暂未开放'
+  //   })
+  // },
 
 
   /**
@@ -91,7 +91,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    
   },
 
   /**
