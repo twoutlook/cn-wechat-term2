@@ -51,6 +51,28 @@ and user = 'ot3ho5G2gWq2duJcGlNVRx_2NzG4'
   },
 
 
+//   SELECT a.*, b.title, b.image FROM commentmovie a, movies b, usercollection c   
+// where a.movie_id = b.id
+// and c.comment_id = a.id
+// and c.user = 'ot3ho5G2gWq2duJcGlNVRx_2NzG4'
+  listbyusercollection: async ctx => {
+    // let user = ctx.state.$wxInfo.userinfo.openId
+
+    // let movie_id = +ctx.request.query.movie
+    let user = ctx.request.query.user
+    let sql = ' SELECT a.*, b.title, b.image FROM commentmovie a, movies b , usercollection c      where a.movie_id=b.id and c.comment_id = a.id' //     and user = ?'
+    if (user != null) {
+      ctx.state.data = await DB.query(sql + ' and c.user = ? order by create_time desc', [user])
+
+    } else {
+      // 方便測試API，在
+      // https://untbxjpi.qcloud.la/weapp/commentmoviebyusercollection
+      //
+      ctx.state.data = await DB.query(sql + '  order by create_time desc limit 0,3')
+    }
+  },
+
+
   /**
    * 获取 all  评论列表
    *   // https://stackoverflow.com/questions/30967822/when-do-i-use-path-params-vs-query-params-in-a-restful-api

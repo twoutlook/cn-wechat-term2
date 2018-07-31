@@ -31,6 +31,17 @@ Page({
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    // 已收藏的
+    if (e.detail.value==0){
+      this.setCommentListByUserCollection(this.data.userInfo.openId)
+    }
+    
+    // 已发布的
+    if (e.detail.value == 1) {
+      this.setCommentListByUser(this.data.userInfo.openId)
+    }
+
+    
     this.setData({
       index: e.detail.value
     })
@@ -85,6 +96,8 @@ Page({
       url: config.service.commentMovieListByUser+"?user="+user,
     
       success: result => {
+
+        console.log("DEBUG 自己發佈的。。。")
         let data = result.data
         console.log(data)
         if (!data.code) {
@@ -105,6 +118,32 @@ Page({
     })
   },
 
+  setCommentListByUserCollection(user) {
+    qcloud.request({
+      url: config.service.commentMovieListByUserCollection + "?user=" + user,
+
+      success: result => {
+        let data = result.data
+        console.log("DEBUG 收藏。。。")
+        console.log(data)
+        if (!data.code) {
+          this.setData({
+            commentMovieList: data.data.map(item => {
+              let itemDate = new Date(item.create_time)
+              item.createTime = _.formatTime(itemDate)
+              // item.images = item.images ? item.images.split(';;') : []
+              return item
+            })
+          })
+        }
+      },
+      fail: res => {
+        console.log(res)
+
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -118,7 +157,19 @@ Page({
    
         console.log("userInfo")
         console.log(userInfo.openId+" nickName"+userInfo.nickName)
-        this.setCommentListByUser(userInfo.openId) 
+        // this.setCommentListByUser(userInfo.openId) 
+
+        // 已收藏的
+        if (this.data.index == 0) {
+          this.setCommentListByUserCollection(userInfo.openId)
+        }
+
+        // 已发布的
+        if (this.data.index == 1) {
+          this.setCommentListByUser(userInfo.openId)
+        }
+
+
         this.setData({
           userInfo
         })

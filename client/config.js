@@ -74,6 +74,7 @@ var config = {
     commentMovieList: `${host}/weapp/commentmovie`,
 
     commentMovieListByUser: `${host}/weapp/commentmoviebyuser`,
+    commentMovieListByUserCollection: `${host}/weapp/commentmoviebyusercollection`,
 
 
     commentMovieDetail: `${host}/weapp/commentmoviedetail`,

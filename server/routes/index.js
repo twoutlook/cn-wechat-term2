@@ -73,7 +73,14 @@ router.get('/commentmovie/:id', controllers.commentmovie.byid)
 // commentmovie?movie=3
 router.get('/commentmovie', controllers.commentmovie.list) 
 
+// 用戶自己發佈的影評
+//
 router.get('/commentmoviebyuser', controllers.commentmovie.listbyuser) 
+
+// by Mark, 2018-07-31 09:15
+// 用戶收藏的影評，可以是自己發佈的
+router.get('/commentmoviebyusercollection', controllers.commentmovie.listbyusercollection) 
+
 
 router.get('/commentmoviedetail', controllers.commentmovie.detail)
 
