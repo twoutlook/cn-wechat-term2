@@ -21,7 +21,8 @@ m1
 3. Show movie of comment's id and comment as well
 */
 
-
+// 07/31 23:12
+//starting of branch m-3
 
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
@@ -68,7 +69,9 @@ Page({
 
   getRandomCommentId() {
     qcloud.request({
-      url: config.service.m001,
+     url: config.service.m001,
+      // url: "https://untbxjpi.qcloud.la/weapp/product",
+
   
       success: result => {
       
