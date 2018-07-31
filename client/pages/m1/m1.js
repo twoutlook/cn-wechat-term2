@@ -32,7 +32,7 @@ Page({
   onTapGotoM5() {
 
     wx.navigateTo({
-      url: `/pages/m5/m5?movie_id=`+this.data.movie_id+"&comment_id="+this.data.comment_id
+      url: `/pages/m5/m5?movie_id=` + this.data.movie_id + "&comment_id=" + this.data.comment_id
     })
 
   },
@@ -55,11 +55,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movie_id:0,
-    comment_id:0,
+    movie_id: 0,
+    comment_id: 0,
     movie: {},
     // commentMovieList: []
-    item:{}
+    item: {}
   },
 
   /**
@@ -67,11 +67,19 @@ Page({
    */
 
   getRandomCommentId() {
+    console.log('getRandomCommentId')
+    console.log(this.config)
+
+    console.log("???getRandomCommentId " + this.config.service.m001)
     qcloud.request({
       url: config.service.m001,
-  
+
       success: result => {
-      
+        console.log(result)
+        console.log(this.config.service.m001)
+        console.log("why?")
+
+
         let arr = result.data.data
         // console.log (arr)
         // to verify random
@@ -89,11 +97,11 @@ Page({
         // var commentId = arr[rnd].id
         this.setData({
           comment_id: arr[rnd].id,
-            movie_id: arr[rnd].movie_id
+          movie_id: arr[rnd].movie_id
         })
         this.getMovieDetail(arr[rnd].movie_id)
       },
-      fail: result=>{
+      fail: result => {
         console.log("Fail to get a random movie comment id!!!")
 
       }
@@ -105,7 +113,7 @@ Page({
   //     wx.stopPullDownRefresh()
   //   })
   // },
-  onLoad: function (options) {
+  onLoad: function(options) {
     // let commentId = this.getRandomCommentId()
     this.getRandomCommentId()
     // console.log("random comment id is " + commentId)
